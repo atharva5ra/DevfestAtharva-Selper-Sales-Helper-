@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Selper</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+
+<body>
+    <div class="container">
+        <h1>Generate Leads for Your Service</h1>
+        <p>Select a service category below to generate a list of leads based on AI analysis of GitHub data.</p>
+
+        <form action="/generate" method="POST">
+            <label for="category">Select Service Category:</label>
+            <select name="category" id="category" required>
+                <option value="">--Select Category--</option>
+                <option value="collaboration">Collaboration</option>
+                <option value="marketing">Marketing</option>
+                <option value="development">Development</option>
+            </select>
+            <button type="submit">Generate CSV</button>
+        </form>
+
+        <div id="error-message" style="color: red; display: none;">
+            <p>Please select a valid category.</p>
+        </div>
+
+    </div>
+
+    <footer>
+        <p>Powered by <a href="https://www.example.com" target="_blank">Selper</a></p>
+    </footer>
+
+    <script>
+        // Display error message if the form submission fails (optional)
+        document.querySelector("form").addEventListener("submit", function (event) {
+            const category = document.querySelector("#category").value;
+            if (!category) {
+                event.preventDefault();
+                document.getElementById("error-message").style.display = "block";
+            }
+        });
+    </script>
+</body>
+
+</html>
