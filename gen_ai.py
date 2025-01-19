@@ -4,7 +4,8 @@ import pandas as pd
 from transformers import pipeline
 import csv
 
-GITHUB_TOKEN = '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'
+# Create your own GitHub Token key here
+GITHUB_TOKEN = 'your_token_here'
 GITHUB_API_URL = "https://api.github.com/search/users?q="
 
 # Initialize Hugging Face model for zero-shot classification
